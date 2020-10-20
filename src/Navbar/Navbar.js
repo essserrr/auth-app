@@ -1,28 +1,62 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
+import SeparatedList from "./SeparatedList/SeparatedList"
+import User from './User/User'
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    padding: "20px 49px 20px 49px",
-    [theme.breakpoints.down("md")]: {
-      padding: "17px 10px 17px 10px"
+  navContainer: {
+    padding: "20px 49px 17px 49px",
+    [theme.breakpoints.down("sm")]: {
+      padding: "17px 10px 18px 10px",
+    },
+  },
+  notificationIcon: {
+    fontSize: 40,
+    color: theme.palette.textPrimary.main,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 24,
+    },
+  },
+
+  userName: {
+    marginLeft: "20px",
+    fontFamily: "Open Sans",
+    fontStyle: "normal",
+    fontWeight: "600",
+    fontSize: "14px",
+    lineHeight: "19px",
+    color: theme.palette.textPrimary.main,
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
+
+  userAvatar: {
+    width: "40px",
+    height: "40px",
+    [theme.breakpoints.down("sm")]: {
+      width: "24px",
+      height: "24px",
     },
   },
 }));
 
-
-export default function Navbar() {
+export default React.memo(function Navbar() {
   const classes = useStyles();
 
   return (
-    <Grid container direction="row" justify="flex-end" alignItems="center" className={classes.container}>
+    <Grid container direction="row" justify="flex-end" alignItems="center" className={classes.navContainer}>
       <Grid item xs={"auto"}>
-        Notification
-      </Grid >
-      <Grid item xs={"auto"}>
-        Name
+        <SeparatedList>
+          <NotificationsNoneIcon className={classes.notificationIcon} />
+          <User textStyle={classes.userName} iconStyle={classes.userAvatar} justify="center" alignItems="center"
+            avatar={"/icons/avatar.svg"}>
+            Иванова А.
+            </User>
+        </SeparatedList>
       </Grid >
     </Grid>
   );
-}
+})

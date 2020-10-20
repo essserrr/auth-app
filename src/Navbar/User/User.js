@@ -1,28 +1,16 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import { Grid } from '@material-ui/core';
+import RoundedIcon from './RoundedIcon/RoundedIcon'
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    padding: "20px 49px 20px 49px",
-    [theme.breakpoints.down("md")]: {
-      padding: "17px 10px 17px 10px"
-    },
-  },
-}));
-
-
-export default function Navbar() {
-  const classes = useStyles();
-
-  return (
-    <Grid container direction="row" justify="flex-end" alignItems="center" className={classes.container}>
-      <Grid item xs={"auto"}>
-        Notification
-      </Grid >
-      <Grid item xs={"auto"}>
-        Name
-      </Grid >
+export default React.memo(function User(props) {
+    return ( 
+    <Grid container direction="row" justify={props.justify} alignItems={props.alignItems}  >
+        <Grid item xs={"auto"}>
+            <RoundedIcon className={props.iconStyle} src={props.avatar} />
+        </Grid> 
+        <Grid item xs={"auto"} className={props.textStyle}>
+            {props.children}
+        </Grid>
     </Grid>
-  );
-}
+    );
+})
