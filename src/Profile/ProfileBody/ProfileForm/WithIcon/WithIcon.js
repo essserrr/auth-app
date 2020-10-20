@@ -6,14 +6,14 @@ import Grid from '@material-ui/core/Grid';
 const useStyles = makeStyles((theme) => ({
   withLabelGrid: {
     justifyContent: "space-around",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       justifyContent: "center",
     },
   },
   iconWrapper: {
     marginRight: "42px",
     paddingBottom: "9.5px",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       display: "none",
     },
   },

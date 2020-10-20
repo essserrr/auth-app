@@ -5,17 +5,15 @@ import Link from '@material-ui/core/Link';
 
 import PageTitle from './PageTitle/PageTitle';
 import PageBreadcrumbs from './PageBreadcrumbs/PageBreadcrumbs';
-import Profile from '../Profile/Profile';
+import ProfileWrapper from '../Profile/ProfileWrapper';
 
 const useStyles = makeStyles((theme) => ({
-  pageBody: {
-    padding: "0px 20px 0px 20px",
+  pageBodyContentWrapper: {
+    maxWidth: "1365px",
+    padding: "0px 34px 0px 23px",
     [theme.breakpoints.down("sm")]: {
       padding: "0px 10px 0px 10px",
     },
-  },
-  pageBodyContentWrapper: {
-    maxWidth: "1365px",
   },
   breadCrumbs: {
     marginTop: "10px",
@@ -35,7 +33,7 @@ export default React.memo(function PageBody() {
   const classes = useStyles();
 
   return (
-    <Grid container direction="row" justify="center" alignItems="center" className={classes.pageBody}>
+    <Grid container direction="row" justify="center" alignItems="center">
       <Grid item xs={12} className={classes.pageBodyContentWrapper}>
         <Grid container direction="row" justify="center" alignItems="center">
           <Grid item xs={12} >
@@ -50,7 +48,7 @@ export default React.memo(function PageBody() {
             </PageBreadcrumbs>
           </Grid >
           <Grid item xs={12} className={classes.contentBody}>
-            <Profile />
+            <ProfileWrapper />
           </Grid >
         </Grid>
       </Grid>

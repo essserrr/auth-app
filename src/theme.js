@@ -20,6 +20,9 @@ const theme = createMuiTheme({
     buttonColor: {
       main: "#00BFA5",
     },
+    separator: {
+      main: "#CAE7FE",
+    },
     error: {
       main: "#EB5757",
     },

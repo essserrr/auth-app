@@ -11,6 +11,14 @@ import CustomButton from './CustomButton/CustomButton';
 const useStyles = makeStyles((theme) => ({
   formGrid: {
     padding: "40px 70px 44px 30px",
+
+    "& $inputRow:first-of-type": {
+      paddingLeft: "0px",
+    },
+    "& $inputRow:nth-child(3)": {
+      paddingRight: "0px",
+      borderRight: `none`,
+    },
     [theme.breakpoints.down("sm")]: {
       padding: "17px 23px 23px 17px",
       "& $inputRow:first-of-type": {
@@ -19,7 +27,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   inputRow: {
-    [theme.breakpoints.down("sm")]: {
+    padding: "22px 76px 0px 29px",
+    borderRight: `1px solid ${theme.palette.separator.main}`,
+    [theme.breakpoints.down("lg")]: {
+      borderRight: `none`,
+      padding: "9px 0px 0px 0px",
       marginTop: "10px",
     },
   },
@@ -40,7 +52,7 @@ export default React.memo(function ProfileTips(props) {
         <form noValidate autoComplete="off">
 
           <Grid container direction="row" alignItems="center" justify="space-around" className={classes.formGrid}>
-            <Grid item sm={12} md={"auto"} className={classes.inputRow}>
+            <Grid item md={12} lg={"auto"} className={classes.inputRow}>
               <WithIcon icon={<AlternateEmailIcon />}>
                 <CustomTextField
                   label="Фамилия и имя"
@@ -49,7 +61,7 @@ export default React.memo(function ProfileTips(props) {
                 />
               </WithIcon>
             </Grid>
-            <Grid item sm={12} md={"auto"} className={classes.inputRow}>
+            <Grid item md={12} lg={"auto"} className={classes.inputRow}>
               <WithIcon icon={<PhoneIcon />}>
                 <CustomTextField
                   defaultValue="Ivanova@mail.ru"
@@ -60,7 +72,7 @@ export default React.memo(function ProfileTips(props) {
                 />
               </WithIcon>
             </Grid>
-            <Grid item sm={12} md={"auto"} className={classes.inputRow}>
+            <Grid item md={12} lg={"auto"} className={classes.inputRow}>
               <WithIcon icon={<AlternateEmailIcon />}>
                 <CustomTextField
                   label="Номер телефона"

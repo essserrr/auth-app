@@ -51,7 +51,7 @@ export default React.memo(function ProfileHead(props) {
         </User>
       </Grid >
       <Grid item xs={"auto"}>
-        <RedactBlock status={props.status} />
+        <RedactBlock status={props.status} onClick={props.onClick} />
       </Grid >
     </Grid>
   );
