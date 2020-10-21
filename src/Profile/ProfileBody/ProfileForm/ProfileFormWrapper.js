@@ -27,6 +27,7 @@ class ProfileFormWrapper extends React.PureComponent {
   }
 
   onChange = (event) => {
+    //input field change handler
     const name = event.target.getAttribute("name")
     this.setState({
       fields: {
@@ -40,12 +41,14 @@ class ProfileFormWrapper extends React.PureComponent {
   }
 
   onBlur = (event) => {
+    //input field "on leave" handler
     const name = event.target.getAttribute("name")
     const type = event.target.getAttribute("type")
     this.validate(event.target.value, name, type)
   }
 
   validate = (value, name, type) => {
+    //input validates given field and sets state
     const err = this.validateField(value, type)
 
     this.setState({
@@ -61,15 +64,16 @@ class ProfileFormWrapper extends React.PureComponent {
   }
 
   validateAll = () => {
-    let newFields ={}
+    //input validates all fields and sets state
+    let newFields = {}
     Object.entries(this.state.fields).forEach((entry) => {
-        let [filedName, filed] = [...entry];
-        
-        const err = this.validateField(filed.value, filedName)
-        newFields[filedName] = {...this.state.fields[filedName], error: err, validated: !err}
+      let [filedName, filed] = [...entry];
+
+      const err = this.validateField(filed.value, filedName)
+      newFields[filedName] = { ...this.state.fields[filedName], error: err, validated: !err }
     })
     this.setState({
-      fields: {...newFields}
+      fields: { ...newFields }
     })
     return Object.entries(newFields).reduce((sum, value) => {
       return sum || value[1].error
@@ -93,7 +97,7 @@ class ProfileFormWrapper extends React.PureComponent {
     return !(regex.exec(value) !== null);
   }
   validatePhone = (value) => {
-    value = value.replace(/ /g, "" )
+    value = value.replace(/ /g, "")
     const regex = /^\+([\d]{11})/i;
     return !(regex.exec(value) !== null);
   }
@@ -103,26 +107,43 @@ class ProfileFormWrapper extends React.PureComponent {
   }
 
   showDiolog = () => {
-    const isError = this.validateAll()
-    if (isError) return;
+    //opens submit diolog
+    //const isError = this.validateAll()
+    //if (isError) return;
     this.setState({
       isOpened: !this.state.isOpened,
     })
   }
 
   closeDiolog = () => {
+    //closes submit diolog
     this.setState({
       isOpened: !this.state.isOpened,
     })
   }
-  
-   onSubmit = async () => {
-    const form = {...this.state.fields}
-    localStorage.setItem('form-fields', JSON.stringify({...this.state.fields}) );
+
+  onSubmit = async () => {
+    const form = { ...this.state.fields }
+    //add item to storage
+    localStorage.setItem('form-fields', JSON.stringify({ ...this.state.fields }));
     try {
-      const request = await fetch(".////")
-      const response = JSON.parse(request.body)
-      console.log(`Your answer is: ${response}`)
+      //fetch small proxy-like handler
+      const response = await fetch("http://localhost:8080/smolProxy/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-token-access": "random",
+        },
+        body: JSON.stringify({ Name: this.state.fields.name.value, Mail: this.state.fields.mail.value, Phone: this.state.fields.phone.value })
+      })
+      //parse answer
+      const data = await response.json()
+      //if response is not ok, throw error
+      if (!response.ok) { throw data }
+
+      //otherwise
+      console.log(`Your answer is: ${data}`)
+
     } catch (err) {
       console.log(`Ooops, error: ${err}`)
     }
@@ -135,12 +156,12 @@ class ProfileFormWrapper extends React.PureComponent {
         mail={this.state.fields.mail}
         phone={this.state.fields.phone}
 
-      onBlur={this.onBlur}
-      onChange={this.onChange}
-      showDiolog={this.showDiolog}
-      closeDiolog={this.closeDiolog}
-      onSubmit={this.onSubmit}
-      isOpened={this.state.isOpened}
+        onBlur={this.onBlur}
+        onChange={this.onChange}
+        showDiolog={this.showDiolog}
+        closeDiolog={this.closeDiolog}
+        onSubmit={this.onSubmit}
+        isOpened={this.state.isOpened}
       />
     );
   }

@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   userAvatar: {
+    lineHeight: 0,
     width: "40px",
     height: "40px",
     [theme.breakpoints.down("sm")]: {

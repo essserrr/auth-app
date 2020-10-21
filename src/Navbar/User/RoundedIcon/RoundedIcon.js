@@ -7,15 +7,15 @@ import Icon from '@material-ui/core/Icon';
 
 const useStyles = makeStyles((theme) => ({
     roundedIcon: {
-        overflow: "hidden", 
+        overflow: "hidden",
         borderRadius: "50%",
     },
-  }));
+}));
 
 const RoundedIcon = React.memo(function RoundedIcon(props) {
     const classes = useStyles();
 
-    return ( 
+    return (
         <Box component="div" className={`${classes.roundedIcon} ${props.className}`} >
             <Icon>
                 <img className={props.className} src={props.src}></img>

@@ -18,27 +18,30 @@ class SubmitDiologBodyWrapper extends React.PureComponent {
     this.setState({
       success: !this.state.success,
     });
+    if (this.props.turnonAltState) this.props.turnonAltState();
     this.props.onSubmit()
   }
-  
+
 
 
   render() {
     return (
       <>
-        <Collapse  in={!this.state.success}>
+        <Collapse in={!this.state.success}>
           <QuestionBody
-                  closeDiolog={this.props.closeDiolog}
-                  onSubmit={this.onSubmit}
-                />
+            closeDiolog={this.props.closeDiolog}
+            onSubmit={this.onSubmit}
+          />
         </Collapse >
         <Collapse in={this.state.success}>
           <AnswerBody
-                  closeDiolog={this.props.closeDiolog}
-                />
+            closeDiolog={() => {
+              this.props.closeDiolog();
+            }}
+          />
         </Collapse >
       </>
-      
+
     );
   }
 };
@@ -46,7 +49,7 @@ class SubmitDiologBodyWrapper extends React.PureComponent {
 export default SubmitDiologBodyWrapper;
 
 SubmitDiologBodyWrapper.propTypes = {
-  closeDiolog: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired, 
+  closeDiolog: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
 };
 

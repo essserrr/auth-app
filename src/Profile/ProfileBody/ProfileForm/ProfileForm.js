@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import PhoneIcon from '@material-ui/icons/Phone';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
+import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 
 import CustomTextField from './CustomTextField/CustomTextField';
 import WithIcon from "./WithIcon/WithIcon"
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: "0px",
       borderRight: `none`,
     },
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       padding: "17px 23px 23px 17px",
       "& $inputRow:first-of-type": {
         marginTop: 0,
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   inputRow: {
     padding: "22px 76px 0px 29px",
     borderRight: `1px solid ${theme.palette.separator.main}`,
-    [theme.breakpoints.down("lg")]: {
+    [theme.breakpoints.down("md")]: {
       borderRight: `none`,
       padding: "9px 0px 0px 0px",
       marginTop: "10px",
@@ -54,11 +55,10 @@ const ProfileForm = React.memo(function ProfileForm(props) {
   return (
     <Grid container direction="row" alignItems="center" className={classes.profileTips}>
       <SubmitDiolog
-      isOpened={props.isOpened}
-      closeDiolog={props.closeDiolog}
+        isOpened={props.isOpened}
+        closeDiolog={props.closeDiolog}
       >
-        <SubmitDiologBodyWrapper 
-          closeDiolog={props.closeDiolog}
+        <SubmitDiologBodyWrapper
           onSubmit={props.onSubmit}
         />
       </SubmitDiolog>
@@ -67,17 +67,17 @@ const ProfileForm = React.memo(function ProfileForm(props) {
         <form noValidate autoComplete="off">
 
           <Grid container direction="row" alignItems="center" justify="space-around" className={classes.formGrid}>
-            <Grid item md={12} lg={"auto"} className={classes.inputRow}>
-              <WithIcon icon={<AlternateEmailIcon />}>
+            <Grid item xs={12} lg={"auto"} className={classes.inputRow}>
+              <WithIcon icon={<AssignmentIndIcon />}>
                 <CustomTextField
                   additionalProps={{
                     value: props.name.value,
                     name: "name",
                     type: "name",
 
-                    label:"Фамилия и имя",
-                    helperText:"Вы неверно указали имя",
-                    variant:"outlined",
+                    label: "Фамилия и имя",
+                    helperText: "Вы неверно указали имя",
+                    variant: "outlined",
                     onBlur: props.onBlur,
                     onChange: props.onChange,
                   }}
@@ -90,49 +90,49 @@ const ProfileForm = React.memo(function ProfileForm(props) {
                 />
               </WithIcon>
             </Grid>
-            <Grid item md={12} lg={"auto"} className={classes.inputRow}>
+            <Grid item xs={12} lg={"auto"} className={classes.inputRow}>
               <WithIcon icon={<AlternateEmailIcon />}>
                 <CustomTextField
-                additionalProps={{
-                  name: "mail",
-                  type: "mail",
-                  label:"E-mail",
-                  helperText:"Вы неверно указали E-mail",
-                  variant:"outlined",
+                  additionalProps={{
+                    name: "mail",
+                    type: "mail",
+                    label: "E-mail",
+                    helperText: "Вы неверно указали E-mail",
+                    variant: "outlined",
 
-                }}
-                value={props.mail.value}
-                onChange={props.onChange}
-                onBlur={props.onBlur}
-                error={props.mail.error}
-                validated={props.mail.validated}
+                  }}
+                  value={props.mail.value}
+                  onChange={props.onChange}
+                  onBlur={props.onBlur}
+                  error={props.mail.error}
+                  validated={props.mail.validated}
 
                 />
               </WithIcon>
             </Grid>
-            <Grid item md={12} lg={"auto"} className={classes.inputRow}>
+            <Grid item xs={12} lg={"auto"} className={classes.inputRow}>
               <WithIcon icon={<PhoneIcon />}>
-              <InputMask
-                mask="+9 999 999 99 99"
-                value={props.phone.value}
-                onChange={props.onChange}
-                onBlur={props.onBlur}
-                disabled={false}
-                maskChar=" "
-              >
-                {() => <CustomTextField
-                additionalProps={{
-                  name: "phone",
-                  type: "phone",
-                  label:"Номер телефона",
-                  helperText:"Вы неверно указали номер телефона",
-                  variant:"outlined",
-                }}
-                error={props.phone.error}
-                validated={props.phone.validated}
-                />}
+                <InputMask
+                  mask="+9 999 999 99 99"
+                  value={props.phone.value}
+                  onChange={props.onChange}
+                  onBlur={props.onBlur}
+                  disabled={false}
+                  maskChar=" "
+                >
+                  {() => <CustomTextField
+                    additionalProps={{
+                      name: "phone",
+                      type: "phone",
+                      label: "Номер телефона",
+                      helperText: "Вы неверно указали номер телефона",
+                      variant: "outlined",
+                    }}
+                    error={props.phone.error}
+                    validated={props.phone.validated}
+                  />}
 
-              </InputMask>
+                </InputMask>
               </WithIcon>
             </Grid>
             <Grid item xs={12} className={classes.submitRow}>
@@ -160,5 +160,5 @@ ProfileForm.propTypes = {
 
   isOpened: PropTypes.bool.isRequired,
   showDiolog: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired, 
+  onSubmit: PropTypes.func.isRequired,
 };
