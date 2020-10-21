@@ -1,5 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { makeStyles } from '@material-ui/core/styles';
+
 import Grid from '@material-ui/core/Grid';
 
 
@@ -19,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default React.memo(function PageTitle(props) {
+const PageTitle = React.memo(function PageTitle(props) {
   const classes = useStyles();
 
   return (
@@ -29,4 +32,10 @@ export default React.memo(function PageTitle(props) {
       </Grid >
     </Grid>
   );
-})
+});
+
+export default PageTitle;
+
+PageTitle.propTypes = {
+    children: PropTypes.node.isRequired
+};

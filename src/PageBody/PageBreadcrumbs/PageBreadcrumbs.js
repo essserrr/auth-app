@@ -1,6 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 
 const useStyles = makeStyles((theme) => ({
@@ -36,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default React.memo(function PageBreadcrumbs(props) {
+const PageBreadcrumbs = React.memo(function PageBreadcrumbs(props) {
     const classes = useStyles();
 
     return (
@@ -48,4 +51,14 @@ export default React.memo(function PageBreadcrumbs(props) {
             </Grid >
         </Grid>
     );
-})
+});
+
+export default PageBreadcrumbs;
+
+PageBreadcrumbs.propTypes = {
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]).isRequired
+};
+

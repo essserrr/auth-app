@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -14,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default React.memo(function Profile(props) {
+const Profile = React.memo(function Profile(props) {
     const classes = useStyles();
 
     return (
@@ -29,4 +31,11 @@ export default React.memo(function Profile(props) {
             </Grid >
         </Grid>
     );
-})
+});
+
+export default Profile;
+
+Profile.propTypes = {
+    redactState: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired,
+};

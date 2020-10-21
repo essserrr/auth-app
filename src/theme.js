@@ -11,6 +11,9 @@ const theme = createMuiTheme({
     textTretiary: {
       main: "rgba(49, 49, 49, 0.5)",
     },
+    diologText: {
+      main: "rgba(49, 49, 49, 0.7)"
+    },
     backgroundGradient: {
       main: "linear-gradient(270deg, #1A78C2 0%, #1A78C2 101.06%)",
     },
@@ -28,6 +31,9 @@ const theme = createMuiTheme({
     },
     validated: {
       main: "#359FF4",
+    },
+    closeButton: {
+      main: "#828282",
     }
   },
 });

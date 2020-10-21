@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
@@ -39,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default React.memo(function SeparatedList(props) {
+const SeparatedList = React.memo(function SeparatedList(props) {
   const classes = useStyles();
 
   return (
@@ -53,4 +55,13 @@ export default React.memo(function SeparatedList(props) {
       )}
     </Grid>
   );
-})
+});
+
+export default SeparatedList;
+
+SeparatedList.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};

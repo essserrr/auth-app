@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Profile from "./Profile";
-
 
 class ProfileWrapper extends React.PureComponent {
   constructor() {
@@ -23,10 +21,5 @@ class ProfileWrapper extends React.PureComponent {
     );
   }
 }
-
-/*ProfileWrapper.propTypes = {
-  value: PropTypes.object.isRequired,
-  selectStatus: PropTypes.object.isRequired,
-};*/
 
 export default ProfileWrapper;

@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-
 
 const useStyles = makeStyles((theme) => ({
   customTextField: {
@@ -81,14 +82,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default React.memo(function CustomTextField(props) {
+const CustomTextField = React.memo(function CustomTextField(props) {
   const classes = useStyles();
-
   return (
     <TextField
-      {...props}
+      {...props.additionalProps}
 
+      value={props.value}
       error={props.error}
+      onChange={props.onChange}
+      onBlur={props.onBlur}
+      onMouseDown={props.onMouseDown}
+      onPaste={props.onPaste}
+      onFocus={props.onFocus}
+
       className={`${classes.customTextField} ${props.validated ? "validated" : ""}`}
       InputProps={{
         className: classes.input,
@@ -101,4 +108,12 @@ export default React.memo(function CustomTextField(props) {
     />
 
   );
-})
+});
+
+export default CustomTextField;
+
+CustomTextField.propTypes = {
+  additionalProps: PropTypes.object,
+  validated: PropTypes.bool,
+  error: PropTypes.bool,
+};

@@ -39,7 +39,7 @@ export default React.memo(function PageBody() {
           <Grid item xs={12} >
             <PageTitle>
               ЛИЧНЫЙ ПРОФИЛЬ
-        </PageTitle>
+            </PageTitle>
           </Grid >
           <Grid item xs={12} className={classes.breadCrumbs}>
             <PageBreadcrumbs>

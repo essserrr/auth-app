@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
@@ -23,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default React.memo(function WithIcon(props) {
+const WithIcon = React.memo(function WithIcon(props) {
   const classes = useStyles();
 
   return (
@@ -38,4 +40,11 @@ export default React.memo(function WithIcon(props) {
       </Grid>
     </Grid>
   );
-})
+});
+
+export default WithIcon;
+
+WithIcon.propTypes = {
+  children: PropTypes.node.isRequired,
+  icon: PropTypes.node.isRequired,
+};

@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Icon from '@material-ui/core/Icon';
@@ -10,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-export default React.memo(function RoundedIcon(props) {
+const RoundedIcon = React.memo(function RoundedIcon(props) {
     const classes = useStyles();
 
     return ( 
@@ -20,4 +22,11 @@ export default React.memo(function RoundedIcon(props) {
             </Icon>
         </Box>
     );
-})
+});
+
+export default RoundedIcon;
+
+RoundedIcon.propTypes = {
+    className: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+};

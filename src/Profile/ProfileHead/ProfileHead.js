@@ -1,6 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+
 import User from "../../Navbar/User/User";
 import RedactBlock from "./RedactBlock/RedactBlock";
 
@@ -39,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default React.memo(function ProfileHead(props) {
+const ProfileHead = React.memo(function ProfileHead(props) {
   const classes = useStyles();
 
   return (
@@ -55,4 +58,14 @@ export default React.memo(function ProfileHead(props) {
       </Grid >
     </Grid>
   );
-})
+});
+
+export default ProfileHead;
+
+ProfileHead.propTypes = {
+    onClick:  PropTypes.func.isRequired,
+    status:  PropTypes.bool.isRequired,
+    avatar:  PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired
+};
+
