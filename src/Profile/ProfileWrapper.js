@@ -5,7 +5,7 @@ class ProfileWrapper extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-      redactState: true,
+      redactState: false,
     };
   }
 

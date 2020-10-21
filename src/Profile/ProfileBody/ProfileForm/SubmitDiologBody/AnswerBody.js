@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 const useStyles = makeStyles((theme) => ({
   diologTitle: {
     padding: 0,
-    fontFamily: "Open Sans",
+    fontFamily: theme.typography.mainFont,
     fontStyle: "normal",
     fontWeight: "600",
     fontSize: "24px",
@@ -33,23 +33,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AnswerBody = React.memo(function AnswerBody(props) {
-    const classes = useStyles();
+  const classes = useStyles();
 
   return (
     <Grid container direction="row" alignItems="center" justify="center">
-        <Grid item xs={12} className={classes.diologTitleMargin}>
-            <DialogTitle className={classes.diologTitle}>
-              Данные успешно сохранены
+      <Grid item xs={12} className={classes.diologTitleMargin}>
+        <DialogTitle className={classes.diologTitle}>
+          Данные успешно сохранены
             </DialogTitle>
-        </Grid>
-        <Grid item xs={12} className={classes.confirmDialog}>
-            <Grid container direction="row" alignItems="center" justify="center">
-                <CustomButton height="50px" width="202px"
-                onClick={props.closeDiolog}>
-                  Хорошо
+      </Grid>
+      <Grid item xs={12} className={classes.confirmDialog}>
+        <Grid container direction="row" alignItems="center" justify="center">
+          <CustomButton height="50px" width="202px"
+            onClick={props.closeDiolog}>
+            Хорошо
                 </CustomButton>
-            </Grid>
         </Grid>
+      </Grid>
     </Grid>
   );
 });

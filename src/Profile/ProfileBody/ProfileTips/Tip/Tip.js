@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.buttonColor.main,
   },
   textStyle: {
-    fontFamily: "Open Sans",
+    fontFamily: theme.typography.mainFont,
     fontStyle: "normal",
     fontWeight: "normal",
     fontXize: "18px",
@@ -54,6 +54,6 @@ const Tip = React.memo(function Tip(props) {
 export default Tip;
 
 Tip.propTypes = {
-    icon:  PropTypes.node.isRequired,
-    children: PropTypes.node.isRequired
+  icon: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };

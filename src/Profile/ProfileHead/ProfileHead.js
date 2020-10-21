@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   userName: {
     marginLeft: "42px",
-    fontFamily: "Open Sans",
+    fontFamily: theme.typography.mainFont,
     fontStyle: "normal",
     fontWeight: "600",
     fontSize: "30px",
@@ -63,9 +63,9 @@ const ProfileHead = React.memo(function ProfileHead(props) {
 export default ProfileHead;
 
 ProfileHead.propTypes = {
-    onClick:  PropTypes.func.isRequired,
-    status:  PropTypes.bool.isRequired,
-    avatar:  PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired
+  onClick: PropTypes.func.isRequired,
+  status: PropTypes.bool.isRequired,
+  avatar: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired
 };
 

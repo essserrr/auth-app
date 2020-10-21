@@ -7,6 +7,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import createCache from '@emotion/cache';
 import theme from '../src/theme';
 
+import "./_app.css"
+
 export const cache = createCache();
 
 export default function MyApp(props) {

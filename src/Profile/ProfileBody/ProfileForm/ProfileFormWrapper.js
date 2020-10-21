@@ -5,7 +5,7 @@ class ProfileFormWrapper extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-      isOpened: true,
+      isOpened: false,
       fields: {
         name: {
           value: "",
@@ -108,8 +108,8 @@ class ProfileFormWrapper extends React.PureComponent {
 
   showDiolog = () => {
     //opens submit diolog
-    //const isError = this.validateAll()
-    //if (isError) return;
+    const isError = this.validateAll()
+    if (isError) return;
     this.setState({
       isOpened: !this.state.isOpened,
     })

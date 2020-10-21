@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
   redactText: {
     marginRight: "5px",
-    fontFamily: "Open Sans",
+    fontFamily: theme.typography.mainFont,
     fontStyle: "normal",
     fontWeight: "600",
     fontSize: "14px",
@@ -59,6 +59,6 @@ const RedactBlock = React.memo(function RedactBlock(props) {
 export default RedactBlock;
 
 RedactBlock.propTypes = {
-    onClick:  PropTypes.func.isRequired,
-    status:  PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  status: PropTypes.bool.isRequired,
 };

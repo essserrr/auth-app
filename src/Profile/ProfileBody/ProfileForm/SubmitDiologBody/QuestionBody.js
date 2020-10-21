@@ -10,7 +10,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 const useStyles = makeStyles((theme) => ({
   diologTitle: {
     padding: 0,
-    fontFamily: "Open Sans",
+    fontFamily: theme.typography.mainFont,
     fontStyle: "normal",
     fontWeight: "600",
     fontSize: "24px",
@@ -41,33 +41,33 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const QuestionBody = React.memo(function QuestionBody(props) {
-    const classes = useStyles();
+  const classes = useStyles();
   return (
     <Grid container direction="row" alignItems="center" justify="center">
-        <Grid item xs={12} className={classes.iconRow}>
-            <CloseIcon className={classes.closeIcon} onClick={props.closeDiolog} />
-        </Grid>
-        <Grid item xs={12} className={classes.diologTitleMargin}>
-            <DialogTitle className={classes.diologTitle}>
-              Сохранить изменения?
+      <Grid item xs={12} className={classes.iconRow}>
+        <CloseIcon className={classes.closeIcon} onClick={props.closeDiolog} />
+      </Grid>
+      <Grid item xs={12} className={classes.diologTitleMargin}>
+        <DialogTitle className={classes.diologTitle}>
+          Сохранить изменения?
             </DialogTitle>
-        </Grid>
-        <Grid item xs={12} className={classes.confirmDialog}>
-            <Grid container direction="row" alignItems="center" justify="center">
-                <CustomButton height="50px" width="202px"
-                  onClick={props.onSubmit}>
-                  Сохранить
+      </Grid>
+      <Grid item xs={12} className={classes.confirmDialog}>
+        <Grid container direction="row" alignItems="center" justify="center">
+          <CustomButton height="50px" width="202px"
+            onClick={props.onSubmit}>
+            Сохранить
                 </CustomButton>
-            </Grid>
         </Grid>
-        <Grid item xs={12} className={classes.declineDialog}>
-          <Grid container direction="row" alignItems="center" justify="center">
-            <CustomButton height="50px" width="202px" hollow={true}
-              onClick={props.closeDiolog}>
-              Не сохранять
+      </Grid>
+      <Grid item xs={12} className={classes.declineDialog}>
+        <Grid container direction="row" alignItems="center" justify="center">
+          <CustomButton height="50px" width="202px" hollow={true}
+            onClick={props.closeDiolog}>
+            Не сохранять
             </CustomButton >
-          </Grid>
         </Grid>
+      </Grid>
     </Grid>
   );
 });
@@ -76,5 +76,5 @@ export default QuestionBody;
 
 QuestionBody.propTypes = {
   closeDiolog: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired, 
+  onSubmit: PropTypes.func.isRequired,
 };

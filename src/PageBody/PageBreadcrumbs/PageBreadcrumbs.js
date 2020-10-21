@@ -9,7 +9,7 @@ import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 const useStyles = makeStyles((theme) => ({
     breadcrumbs: {
         "& a": {
-            fontFamily: "Open Sans",
+            fontFamily: theme.typography.mainFont,
             fontStyle: "normal",
             fontWeight: "600",
             fontSize: "14px",
@@ -21,10 +21,16 @@ const useStyles = makeStyles((theme) => ({
                 lineHeight: "16px",
             },
         },
+        "& .MuiBreadcrumbs-li": {
+            lineHeight: "19px",
+            [theme.breakpoints.down("sm")]: {
+                lineHeight: "16px",
+            },
+        },
         "& .MuiBreadcrumbs-separator": {
             marginLeft: 0,
             marginRight: 0,
-            fontFamily: "Open Sans",
+            fontFamily: theme.typography.mainFont,
             fontStyle: "normal",
             fontWeight: "600",
             fontSize: "14px",

@@ -1,5 +1,7 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
+const mainFont = "Open Sans"
+
 const theme = createMuiTheme({
   palette: {
     textPrimary: {
@@ -36,6 +38,9 @@ const theme = createMuiTheme({
       main: "#828282",
     }
   },
+  typography: {
+    mainFont: mainFont,
+  }
 });
 
 export default theme;

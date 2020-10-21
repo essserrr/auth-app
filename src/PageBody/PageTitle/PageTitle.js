@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    fontFamily: "Open Sans",
+    fontFamily: theme.typography.mainFont,
     fontStyle: "normal",
     fontWeight: "600",
     fontSize: "18px",
@@ -37,5 +37,5 @@ const PageTitle = React.memo(function PageTitle(props) {
 export default PageTitle;
 
 PageTitle.propTypes = {
-    children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired
 };

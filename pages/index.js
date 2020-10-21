@@ -8,10 +8,19 @@ import PageBody from "../src/PageBody/PageBody";
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: "0",
-    backgroundColor: "wheat",
+    background: "url(/background.svg) no-repeat top right / 100% auto",
+    '@media (max-width: 1481px)': {
+      background: "url(/background.svg) no-repeat top right / auto auto",
+    },
+    [theme.breakpoints.down("sm")]: {
+      background: "url(/background-sm.svg) no-repeat top right / 100% auto",
+    },
   },
   gridContainer: {
     minHeight: "100vh"
+  },
+  pageBAckground: {
+    backgroundImage: "/background.svg",
   },
 }));
 

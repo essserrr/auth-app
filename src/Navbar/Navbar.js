@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
   userName: {
     marginLeft: "20px",
-    fontFamily: "Open Sans",
+    fontFamily: theme.typography.mainFont,
     fontStyle: "normal",
     fontWeight: "600",
     fontSize: "14px",

@@ -18,16 +18,16 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: "none",
     },
     "&.hollow": {
+      backgroundColor: theme.palette.textPrimary.main,
+      border: `1px solid ${theme.palette.buttonColor.main}`,
+      "& .Mui-focused": {
         backgroundColor: theme.palette.textPrimary.main,
-        border: `1px solid ${theme.palette.buttonColor.main}`,
-        "& .Mui-focused": {
-          backgroundColor: theme.palette.textPrimary.main,
-          boxShadow: "none",
-        },
-        "&:hover": {
-          backgroundColor: theme.palette.textPrimary.main,
-          boxShadow: "none",
-        },
+        boxShadow: "none",
+      },
+      "&:hover": {
+        backgroundColor: theme.palette.textPrimary.main,
+        boxShadow: "none",
+      },
 
       "& $label": {
         color: theme.palette.buttonColor.main,
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   label: {
-    fontFamily: "Open Sans",
+    fontFamily: theme.typography.mainFont,
     fontStyle: "normal",
     fontWeight: "600",
     fontSize: "14px",

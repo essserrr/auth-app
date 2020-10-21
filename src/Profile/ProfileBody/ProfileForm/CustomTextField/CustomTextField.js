@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
   helper: {
     visibility: "hidden",
     margin: "3px 10px 0px 10px",
-    fontFamily: "Open Sans",
+    fontFamily: theme.typography.mainFont,
     fontStyle: "normal",
     fontWeight: "normal",
     fontSize: "12px",
