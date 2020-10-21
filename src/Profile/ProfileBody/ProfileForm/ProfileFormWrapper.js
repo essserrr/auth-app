@@ -128,7 +128,7 @@ class ProfileFormWrapper extends React.PureComponent {
     localStorage.setItem('form-fields', JSON.stringify({ ...this.state.fields }));
     try {
       //fetch small proxy-like handler. If we want to hide it too we need another proxy to redirect our request
-      const response = await fetch("http://localhost:8080/api/smolProxy/posts", {
+      const response = await fetch("/api/smolProxy/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
