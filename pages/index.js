@@ -10,17 +10,17 @@ const useStyles = makeStyles((theme) => ({
     padding: "0",
     background: "url(/background.svg) no-repeat top right / 100% auto",
     '@media (max-width: 1481px)': {
-      background: "url(/background.svg) no-repeat top right / auto auto",
+      background: "url(/backgrounds/background.svg) no-repeat top right / auto auto",
     },
     [theme.breakpoints.down("sm")]: {
-      background: "url(/background-sm.svg) no-repeat top right / 100% auto",
+      background: "url(/backgrounds/background-sm.svg) no-repeat top right / 100% auto",
     },
   },
   gridContainer: {
     minHeight: "100vh"
   },
   pageBAckground: {
-    backgroundImage: "/background.svg",
+    backgroundImage: "/backgrounds/background.svg",
   },
 }));
 

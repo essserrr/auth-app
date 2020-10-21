@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
+import Link from 'next/link';
 
 import PageTitle from './PageTitle/PageTitle';
 import PageBreadcrumbs from './PageBreadcrumbs/PageBreadcrumbs';
@@ -43,8 +43,12 @@ export default React.memo(function PageBody() {
           </Grid >
           <Grid item xs={12} className={classes.breadCrumbs}>
             <PageBreadcrumbs>
-              <Link href="/" >Главная</Link>
-              <Link href="/profile" >Личный профиль</Link>
+              <Link href="/">
+                Главная
+              </Link>
+              <Link href="/profile">
+                Личный профиль
+              </Link>
             </PageBreadcrumbs>
           </Grid >
           <Grid item xs={12} className={classes.contentBody}>

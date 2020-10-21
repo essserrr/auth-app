@@ -127,11 +127,12 @@ class ProfileFormWrapper extends React.PureComponent {
     //add item to storage
     localStorage.setItem('form-fields', JSON.stringify({ ...this.state.fields }));
     try {
-      //fetch small proxy-like handler
-      const response = await fetch("http://localhost:8080/smolProxy/posts", {
+      //fetch small proxy-like handler. If we want to hide it too we need another proxy to redirect our request
+      const response = await fetch("http://localhost:8080/api/smolProxy/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept-Encoding": "gzip",
           "x-token-access": "random",
         },
         body: JSON.stringify({ Name: this.state.fields.name.value, Mail: this.state.fields.mail.value, Phone: this.state.fields.phone.value })
@@ -142,10 +143,10 @@ class ProfileFormWrapper extends React.PureComponent {
       if (!response.ok) { throw data }
 
       //otherwise
-      console.log(`Your answer is: ${data}`)
+      console.log(`Your answer is: `, data)
 
     } catch (err) {
-      console.log(`Ooops, error: ${err}`)
+      console.log(`Ooops, error: `, err)
     }
   }
 

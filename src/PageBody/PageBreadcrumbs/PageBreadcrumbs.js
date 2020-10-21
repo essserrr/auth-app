@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     breadcrumbs: {
         "& a": {
             fontFamily: theme.typography.mainFont,
+            textDecoration: "none",
             fontStyle: "normal",
             fontWeight: "600",
             fontSize: "14px",
